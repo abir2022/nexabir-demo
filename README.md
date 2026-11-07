@@ -1,3 +1,5 @@
+![Nexabir — showcase demo](assets/banner.svg)
+
 # Nexabir — showcase demo
 
 A standalone, browser-only preview of Nexabir for desktop and mobile. This repository contains **only the demo**; it is not the production application and has no backend, Supabase connection, or real user data.
