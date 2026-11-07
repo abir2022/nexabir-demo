@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#080d13" />
+    <meta
+      name="description"
+      content="A standalone, fictional Nexabir showcase: a responsive personal command centre for desktop and phone."
+    />
+    <title>Nexabir — Interactive demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="auth" class="auth">
+      <section class="auth__pitch">
+        <div class="auth__brand">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span>Nexabir</span>
+          <span class="auth__brand-tag">showcase</span>
+        </div>
+
+        <div class="auth__copy">
+          <span class="eyebrow">Personal command centre</span>
+          <h1>Your life,<br /><span class="gradient-text">in one calm place.</span></h1>
+          <p class="lede">
+            Work, personal life, business and money — one private workspace that feels just as good on a phone as it
+            does on a desktop.
+          </p>
+          <div class="auth__features">
+            <span class="feature-pill">Desktop + mobile</span>
+            <span class="feature-pill">Fictional demo data</span>
+            <span class="feature-pill">Bridge included</span>
+          </div>
+        </div>
+
+        <div class="auth__foot">
+          <span class="live-dot"></span>
+          No backend, no Supabase, no real data. This page is a GitHub showcase.
+        </div>
+      </section>
+
+      <section class="auth__panel">
+        <form id="loginForm" class="auth__card">
+          <span class="badge badge--accent">Interactive demo</span>
+          <h2>Sign in to look around</h2>
+          <p class="muted">A browser-only demo account. Nothing is sent anywhere.</p>
+
+          <div class="demo-hint">
+            <div class="demo-hint__top">
+              <span>Demo access</span>
+              <button type="button" class="text-btn" data-action="fill-demo">Use demo login</button>
+            </div>
+            <div class="demo-hint__row">
+              <span>Email</span><code>demo@nexabir.app</code>
+            </div>
+            <div class="demo-hint__row">
+              <span>Password</span><code>nexabir</code>
+            </div>
+          </div>
+
+          <label class="field">
+            <span>Email</span>
+            <input id="demoEmail" class="input" type="email" autocomplete="username" placeholder="you@example.com" />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input
+              id="demoPassword"
+              class="input"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+            />
+          </label>
+
+          <p id="loginError" class="form-error hidden" role="alert"></p>
+
+          <button class="btn btn--primary btn--wide" type="submit">Enter the demo</button>
+          <p class="tiny muted login-note">
+            Showcase build · no account is created · no password is stored
+          </p>
+        </form>
+      </section>
+    </div>
+
+    <div id="app" class="app hidden">
+      <aside class="rail">
+        <button class="brand" type="button" data-route="overview" aria-label="Nexabir overview">
+          <span class="brand-mark brand-mark--small" aria-hidden="true">N</span>
+          <span class="brand__text">Nexabir</span>
+        </button>
+
+        <span class="rail__label">Workspace</span>
+        <nav id="railNav" class="nav" aria-label="Main navigation"></nav>
+
+        <div class="rail__spacer"></div>
+        <div class="rail__note">
+          <span class="live-dot"></span>
+          <div>
+            <strong>Demo workspace</strong>
+            <span>Fictional data · local only</span>
+          </div>
+        </div>
+        <div class="rail__user">
+          <span class="avatar">AR</span>
+          <div class="rail__user-text">
+            <strong>Avery Rahman</strong>
+            <span>Founder &amp; operator</span>
+          </div>
+          <button class="icon-btn" type="button" data-action="signout" aria-label="Sign out" title="Sign out">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M10 17l5-5-5-5M15 12H3" />
+              <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <button class="brand brand--topbar" type="button" data-route="overview" aria-label="Nexabir overview">
+            <span class="brand-mark brand-mark--small" aria-hidden="true">N</span>
+            <span class="topbar__identity">
+              <span class="topbar__eyebrow">Nexabir / demo</span>
+              <strong id="pageTitle">Overview</strong>
+            </span>
+          </button>
+
+          <div class="topbar__actions">
+            <span class="demo-pill"><span class="live-dot"></span>Demo</span>
+            <button id="themeBtn" class="icon-btn" type="button" data-action="theme" aria-label="Toggle theme"></button>
+            <button
+              class="icon-btn topbar__logout"
+              type="button"
+              data-action="signout"
+              aria-label="Sign out"
+              title="Sign out"
+            >
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M10 17l5-5-5-5M15 12H3" />
+                <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5" />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main id="view" class="main"></main>
+
+        <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation"></nav>
+      </div>
+    </div>
+
+    <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
